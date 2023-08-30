@@ -1,0 +1,20 @@
+{
+  "name": "javascriptadvanced",
+  "version": "1.0.0",
+  "description": "App che permetta di ottenere informazioni riguardo la qualità della vita delle città attraverso l’utilizzo del servizio esterno Teleport.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --mode development && serve dist",
+    "build": "webpack --mode production"
+  },
+  "author": "Walter",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-loader": "^9.1.3",
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.50.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.3.0"
+  },
+ 
