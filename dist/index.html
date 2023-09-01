@@ -1,17 +1,40 @@
 <!DOCTYPE html>
-<html lang="it>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>titolo</title>
-</head>
-<body>
-    <!-- Contenuto dell'applicazione -->
-    <div id="app"></div>
+  </head>
+  <body>
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Life Quality</span>
+      </div>
+    </nav>
+    <div class="container search">
+      <div class="row">
+        <form id="cityInput">
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="city"
+              placeholder="Insert City"
+            />
+            <div id="cityHelp" class="form-text">
+              Please enter the name of the city for which you would like to
+              discover information regarding the quality of life.
+            </div>
+          </div>
+          <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="container output" id="output"></div>
 
     <!-- Carica il bundle JavaScript generato da Webpack -->
     <script src="bundle.js"></script>
-</body>
+  </body>
 </html>
-
-

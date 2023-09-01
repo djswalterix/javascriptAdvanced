@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  mode: "production",
+  mode: "development",
   entry: "./src/index.js", // Il tuo file JavaScript principale
   output: {
     path: path.resolve(__dirname, "dist"), // Cartella di output
@@ -19,6 +19,17 @@ module.exports = {
         test: /\.css$/,
         use: ["style-loader", "css-loader"], // Caricamento di file CSS
       },
+      {
+        test: /\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
     ],
+  },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
+    compress: true,
+    port: 8080,
   },
 };
