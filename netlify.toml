@@ -1,0 +1,3 @@
+[build]
+command = "npm run build"  # Il comando di build personalizzato
+publish = "dist"          # La cartella di output generata da Webpack
