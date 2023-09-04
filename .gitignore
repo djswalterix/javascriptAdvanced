@@ -1,0 +1,12 @@
+# Cartelle e file generati dal sistema
+node_modules/
+# File di configurazione
+package-lock.json
+
+
+# Variabili d'ambiente locali o file di configurazione
+.env
+.env.local
+.env.development
+.env.test
+.env.production
