@@ -1,4 +1,5 @@
 const path = require("path");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -25,6 +26,14 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        // Copia la favicon dalla directory "images" alla root della directory di output
+        { from: "./src/images/earth.png", to: "./earth.png" },
+      ],
+    }),
+  ],
   devServer: {
     static: {
       directory: path.join(__dirname, "dist"),
