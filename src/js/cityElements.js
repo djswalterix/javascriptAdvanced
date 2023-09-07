@@ -1,15 +1,18 @@
 import { getData } from "./get.js";
-import { createElement } from "./htmlElements.js";
+import { createElement, createProgress } from "./htmlElements.js";
 import { createCategories } from "./categoryElements.js";
 
 //chiamo le funzioni
 export async function showCityElements(city) {
   try {
+    const progressLoading = document.getElementById("progressLoading");
+    progressLoading.children[0].style.width = "0%";
     const data = await fetchData(city);
-
     createCityHeader(city, data.teleport_city_score);
     createDescription(data.summary);
     createCategoriesEl(data.categories);
+    // Aggiorna la barra di caricamento al 100%
+    progressLoading.children[0].style.width = "100%";
   } catch (error) {
     if (error instanceof CityNotFoundError) {
       alert(error.message);
@@ -19,8 +22,10 @@ export async function showCityElements(city) {
     }
   }
 }
+
 //prendo i dati
 async function fetchData(city) {
+  await waitseconds(500); //meodo per fare vedere che la progress funziona
   try {
     const url = `https://api.teleport.org/api/urban_areas/slug:${city}/scores/`;
     const data = await getData(url);
@@ -80,4 +85,12 @@ function formatCityName(inputString) {
   const formattedString = formattedWords.join(" ");
 
   return formattedString;
+}
+
+function waitseconds(seconds) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, seconds); // 2000 millisecondi (2 secondi)
+  });
 }
