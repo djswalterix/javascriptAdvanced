@@ -1,5 +1,6 @@
 const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin"); // Importa HtmlWebpackPlugin
 
 module.exports = {
   mode: "development",
@@ -27,6 +28,9 @@ module.exports = {
     ],
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/html/index.html", // Imposta il percorso corretto del file HTML
+    }),
     new CopyWebpackPlugin({
       patterns: [
         // Copia la favicon dalla directory "images" alla root della directory di output

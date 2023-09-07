@@ -9,6 +9,7 @@ import { createElement } from "./js/htmlElements.js";
 import { createCategories, emptyOutput } from "./js/htlmElementsSpecific.js";
 
 document.addEventListener("DOMContentLoaded", function () {
+  console.log("DOMContentLoaded");
   // Ascolta l'evento submit del modulo del form
   document
     .getElementById("cityInput")

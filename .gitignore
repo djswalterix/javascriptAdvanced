@@ -2,8 +2,10 @@
 node_modules/
 # File di configurazione
 package-lock.json
-
-
+#file con istruzioni da fare
+dafare.txt
+#cartella dist
+dist/
 # Variabili d'ambiente locali o file di configurazione
 .env
 .env.local

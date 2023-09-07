@@ -31,7 +31,7 @@ export function createCategories(categories) {
     scoreAndProgressDiv.appendChild(categoryProgress);
     scoreAndProgressDiv.appendChild(categoryScore);
     categoryDiv.appendChild(scoreAndProgressDiv);
-    console.log(categoryDiv);
+    //console.log(categoryDiv);
 
     const currentRow = categoryContainer.lastElementChild;
     currentRow.appendChild(categoryDiv);
