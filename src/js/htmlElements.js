@@ -22,3 +22,8 @@ export function createProgress(score, color) {
   el.appendChild(bar);
   return el;
 }
+
+export function updateWidth(el, progress) {
+  // Aggiorna la barra di avanzamento con il valore di progress
+  el.style.width = progress + "%";
+}

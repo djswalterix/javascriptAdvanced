@@ -1,5 +1,5 @@
-import { getData } from "./get.js";
-import { createElement, createProgress } from "./htmlElements.js";
+import { getData, getDataWithProgress } from "./get.js";
+import { createElement, updateWidth } from "./htmlElements.js";
 import { createCategories } from "./categoryElements.js";
 
 //chiamo le funzioni
@@ -11,8 +11,6 @@ export async function showCityElements(city) {
     createCityHeader(city, data.teleport_city_score);
     createDescription(data.summary);
     createCategoriesEl(data.categories);
-    // Aggiorna la barra di caricamento al 100%
-    progressLoading.children[0].style.width = "100%";
   } catch (error) {
     if (error instanceof CityNotFoundError) {
       alert(error.message);
@@ -28,7 +26,9 @@ async function fetchData(city) {
   await waitseconds(500); //meodo per fare vedere che la progress funziona
   try {
     const url = `https://api.teleport.org/api/urban_areas/slug:${city}/scores/`;
-    const data = await getData(url);
+    const data = await getDataWithProgress(url, (progress) => {
+      updateWidthProgress(progress);
+    });
     return data;
   } catch (error) {
     //contorllo errori
@@ -93,4 +93,11 @@ function waitseconds(seconds) {
       resolve();
     }, seconds); // 2000 millisecondi (2 secondi)
   });
+}
+
+function updateWidthProgress(progress) {
+  console.log(progress);
+  const progressLoading = document.getElementById("progressLoading");
+
+  updateWidth(progressLoading.children[0], progress);
 }

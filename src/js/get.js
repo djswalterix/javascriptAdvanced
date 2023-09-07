@@ -15,3 +15,23 @@ export function getData(url) {
       throw error;
     });
 }
+
+export function getDataWithProgress(url, progressCallback) {
+  return axios
+    .get(url, {
+      onDownloadProgress: (progressEvent) => {
+        console.log(progressEvent.lengthComputable);
+        if (progressEvent.lengthComputable) {
+          const progress = (progressEvent.loaded / progressEvent.total) * 100;
+          console.log(progress);
+          progressCallback(progress);
+        }
+      },
+    })
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      throw error;
+    });
+}
