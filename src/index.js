@@ -6,7 +6,7 @@ import "@fortawesome/fontawesome-free/js/all";
 
 import { getData } from "./js/get.js";
 import { createElement } from "./js/htmlElements.js";
-import { createCategories, svuotaOutput } from "./js/htlmElementsSpecific.js";
+import { createCategories, emptyOutput } from "./js/htlmElementsSpecific.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   // Ascolta l'evento submit del modulo del form
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const city = document.getElementById("city").value;
 
       // Chiama la tua funzione passando il valore
-      svuotaOutput();
+      emptyOutput();
       showCityElements(formatInputName(city));
     });
 });

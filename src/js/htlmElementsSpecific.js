@@ -7,7 +7,7 @@ export function createCategories(categories) {
   //ciclo le categorie
   for (const category of categories) {
     if (count % 4 === 0) {
-      // Se count è un multiplo di 3, crea una nuova riga
+      // Se count è un multiplo di 4, crea una nuova riga
       const rowDiv = createElement("row"); // Assicurati che la funzione createElement supporti "row"
       categoryContainer.appendChild(rowDiv);
     }
@@ -41,7 +41,7 @@ export function createCategories(categories) {
 }
 
 //metodo per pulire lóutput
-export function svuotaOutput() {
+export function emptyOutput() {
   // Ottieni l'elemento del div di output
   const outputDiv = document.getElementById("output");
 

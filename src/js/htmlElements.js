@@ -1,19 +1,12 @@
 export function createElement(classe, contenuto) {
   let el = document.createElement("div");
-  if (controllaVariabile(classe)) {
+  if (classe) {
     el.className = classe;
   }
-  if (controllaVariabile(contenuto)) {
+  if (contenuto) {
     el.innerHTML = contenuto;
   }
   return el;
-}
-function controllaVariabile(variable) {
-  if (variable !== null && variable !== undefined) {
-    return true;
-  } else {
-    return false;
-  }
 }
 
 export function createProgress(score, color) {
