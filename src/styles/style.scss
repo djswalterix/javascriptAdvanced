@@ -23,9 +23,7 @@
   flex-direction: column;
   justify-content: center;
 }
-.loading-indicator {
-  display: none;
-}
+
 @media only screen and (min-width: 600px) and (orientation: landscape) {
   #cityInput {
     flex-direction: row;
