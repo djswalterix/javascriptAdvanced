@@ -1,16 +1,18 @@
-<<<<<<< HEAD
 import { getData } from "./get.js";
-import { createElement, updateWidth } from "./htmlElements.js";
+import { createElement, updateWidth, progressColor } from "./htmlElements.js";
 import { createCategories } from "./categoryElements.js";
 
 //chiamo le funzioni
 export async function showCityElements(city) {
   try {
+    progressReset();
     const data = await fetchData(city);
     createCityHeader(city, data.teleport_city_score);
     createDescription(data.summary);
     createCategoriesEl(data.categories);
+    updateWidthProgress(100);
   } catch (error) {
+    progressError();
     if (error instanceof CityNotFoundError) {
       alert(error.message);
     } else {
@@ -21,11 +23,10 @@ export async function showCityElements(city) {
 }
 //prendo i dati
 async function fetchData(city) {
+  await waitseconds(500); //per far capire che la barra funziona
   try {
     const url = `https://api.teleport.org/api/urban_areas/slug:${city}/scores/`;
-    const data = await getDataWithProgress(url, (progress) => {
-      updateWidthProgress(progress);
-    });
+    const data = await getData(url);
     return data;
   } catch (error) {
     //contorllo errori
@@ -84,7 +85,6 @@ function formatCityName(inputString) {
   return formattedString;
 }
 
-
 function waitseconds(seconds) {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -94,8 +94,22 @@ function waitseconds(seconds) {
 }
 
 function updateWidthProgress(progress) {
-  console.log(progress);
+  //console.log(progress);
   const progressLoading = document.getElementById("progressLoading");
 
   updateWidth(progressLoading.children[0], progress);
+}
+
+function progressError() {
+  //console.log(progress);
+  const progressLoading = document.getElementById("progressLoading");
+
+  progressColor(progressLoading.children[0], "red");
+}
+function progressReset() {
+  //console.log(progress);
+  const progressLoading = document.getElementById("progressLoading");
+
+  updateWidthProgress(1);
+  progressColor(progressLoading.children[0], "");
 }

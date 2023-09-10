@@ -25,3 +25,8 @@ export function updateWidth(el, progress) {
   // Aggiorna la barra di avanzamento con il valore di progress
   el.style.width = progress + "%";
 }
+
+export function progressColor(el, color) {
+  // Aggiorna la barra di avanzamento con il valore di progress
+  el.style.background = color;
+}
