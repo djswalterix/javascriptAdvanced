@@ -1,13 +1,12 @@
+<<<<<<< HEAD
 import { getData } from "./get.js";
 import { createElement, updateWidth } from "./htmlElements.js";
-
 import { createCategories } from "./categoryElements.js";
 
 //chiamo le funzioni
 export async function showCityElements(city) {
   try {
     const data = await fetchData(city);
-
     createCityHeader(city, data.teleport_city_score);
     createDescription(data.summary);
     createCategoriesEl(data.categories);
@@ -84,6 +83,7 @@ function formatCityName(inputString) {
 
   return formattedString;
 }
+
 
 function waitseconds(seconds) {
   return new Promise((resolve) => {
