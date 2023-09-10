@@ -13,9 +13,7 @@ export function createProgress(score, color) {
   let el = createElement("progress col-md-10 col-10");
   let bar = createElement("progress-bar");
   bar.style.width = score * 10 + "%";
-  if (color) {
-    bar.style.background = color;
-  }
+  bar.style.background = color;
   el.setAttribute("aria-valuenow", score * 10);
   el.setAttribute("aria-valuemin", "0");
   el.setAttribute("aria-valuemax", "100");

@@ -8,8 +8,6 @@ import { showCityElements } from "./js/cityElements.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOMContentLoaded");
-  //creo la progr
-
   // Ascolta l'evento submit del modulo del form
   document
     .getElementById("cityInput")
